@@ -2,196 +2,196 @@ import 'dart:convert';
 
 class Payroll {
 
-      String employeeName;
+      String employee_name;
       String address;
-      String ref;
-      String employerName;
+      String reference;
+      String employer_name;
       String email;
-      String jobstatus;
+      String job_status;
 
       String deminimis;
-      String basicSalary;
+      String basic_salary;
       String overtime;
-      String grossPay;
-      String netPAy;
+      String gross_pay;
+      String netpay;
 
       String tax;
-      String sSS;
+      String sss;
       String loan;
-      String philHealthPayment;
-      String hDmf;
+      String philhealth_payment;
+      String hdmf;
       String deductions;
-      String postCode;
+      String postcode;
       String gender;
       String grade;
-      String dEpartmanet;
+      String department;
 
-      String paydate;
-      String taxperdio;
-      String philhealthnumber;
-      String pihileahlcode;
-      String taxablepay;
-      String pensionpay;
-      String otherpaymentdue;
+      String pay_date;
+      String tax_period;
+      String philhealth_number;
+      String philhealth_code;
+      String taxable_pay;
+      String pension_pay;
+      String other_payment_due;
 
   Payroll({
-    required this.employeeName,
+    required this.employee_name,
     required this.address,
-    required this.ref,
-    required this.employerName,
+    required this.reference,
+    required this.employer_name,
     required this.email,
-    required this.jobstatus,
+    required this.job_status,
     required this.deminimis,
-    required this.basicSalary,
+    required this.basic_salary,
     required this.overtime,
-    required this.grossPay,
-    required this.netPAy,
+    required this.gross_pay,
+    required this.netpay,
     required this.tax,
-    required this.sSS,
+    required this.sss,
     required this.loan,
-    required this.philHealthPayment,
-    required this.hDmf,
+    required this.philhealth_payment,
+    required this.hdmf,
     required this.deductions,
-    required this.postCode,
+    required this.postcode,
     required this.gender,
     required this.grade,
-    required this.dEpartmanet,
-    required this.paydate,
-    required this.taxperdio,
-    required this.philhealthnumber,
-    required this.pihileahlcode,
-    required this.taxablepay,
-    required this.pensionpay,
-    required this.otherpaymentdue,
+    required this.department,
+    required this.pay_date,
+    required this.tax_period,
+    required this.philhealth_number,
+    required this.philhealth_code,
+    required this.taxable_pay,
+    required this.pension_pay,
+    required this.other_payment_due,
   });
 
 
 
   Payroll copyWith({
-    String? employeeName,
+    String? employee_name,
     String? address,
-    String? ref,
-    String? employerName,
+    String? reference,
+    String? employer_name,
     String? email,
-    String? Jobstatus,
+    String? job_status,
     String? deminimis,
-    String? basicSalary,
+    String? basic_salary,
     String? overtime,
-    String? grossPay,
-    String? netPAy,
+    String? gross_pay,
+    String? netpay,
     String? tax,
-    String? sSS,
+    String? sss,
     String? loan,
-    String? philHealthPayment,
-    String? hDmf,
+    String? philhealth_payment,
+    String? hdmf,
     String? deductions,
-    String? postCode,
+    String? postcode,
     String? gender,
     String? grade,
-    String? dEpartmanet,
-    String? paydate,
-    String? taxperdio,
-    String? philhealthnumber,
-    String? pihileahlcode,
-    String? taxablepay,
-    String? pensionpay,
-    String? otherpaymentdue,
+    String? department,
+    String? pay_date,
+    String? tax_period,
+    String? philhealth_number,
+    String? philhealth_code,
+    String? taxable_pay,
+    String? pension_pay,
+    String? other_payment_due,
   }) {
     return Payroll(
-      employeeName: employeeName ?? this.employeeName,
+      employee_name: employee_name ?? this.employee_name,
       address: address ?? this.address,
-      ref: ref ?? this.ref,
-      employerName: employerName ?? this.employerName,
+      reference: reference ?? this.reference,
+      employer_name: employer_name ?? this.employer_name,
       email: email ?? this.email,
-      jobstatus: Jobstatus ?? this.jobstatus,
+      job_status: job_status ?? this.job_status,
       deminimis: deminimis ?? this.deminimis,
-      basicSalary: basicSalary ?? this.basicSalary,
+      basic_salary: basic_salary ?? this.basic_salary,
       overtime: overtime ?? this.overtime,
-      grossPay: grossPay ?? this.grossPay,
-      netPAy: netPAy ?? this.netPAy,
+      gross_pay: gross_pay ?? this.gross_pay,
+      netpay: netpay ?? this.netpay,
       tax: tax ?? this.tax,
-      sSS: sSS ?? this.sSS,
+      sss: sss ?? this.sss,
       loan: loan ?? this.loan,
-      philHealthPayment: philHealthPayment ?? this.philHealthPayment,
-      hDmf: hDmf ?? this.hDmf,
+      philhealth_payment: philhealth_payment ?? this.philhealth_payment,
+      hdmf: hdmf ?? this.hdmf,
       deductions: deductions ?? this.deductions,
-      postCode: postCode ?? this.postCode,
+      postcode: postcode ?? this.postcode,
       gender: gender ?? this.gender,
       grade: grade ?? this.grade,
-      dEpartmanet: dEpartmanet ?? this.dEpartmanet,
-      paydate: paydate ?? this.paydate,
-      taxperdio: taxperdio ?? this.taxperdio,
-      philhealthnumber: philhealthnumber ?? this.philhealthnumber,
-      pihileahlcode: pihileahlcode ?? this.pihileahlcode,
-      taxablepay: taxablepay ?? this.taxablepay,
-      pensionpay: pensionpay ?? this.pensionpay,
-      otherpaymentdue: otherpaymentdue ?? this.otherpaymentdue,
+      department: department ?? this.department,
+      pay_date: pay_date ?? this.pay_date,
+      tax_period: tax_period ?? this.tax_period,
+      philhealth_number: philhealth_number ?? this.philhealth_number,
+      philhealth_code: philhealth_code ?? this.philhealth_code,
+      taxable_pay: taxable_pay ?? this.taxable_pay,
+      pension_pay: pension_pay ?? this.pension_pay,
+      other_payment_due: other_payment_due ?? this.other_payment_due,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'employeeName': employeeName,
+      'employee_name': employee_name,
       'address': address,
-      'ref': ref,
-      'employerName': employerName,
+      'reference': reference,
+      'employer_name': employer_name,
       'email': email,
-      'Jobstatus': jobstatus,
+      'job_status': job_status,
       'deminimis': deminimis,
-      'basicSalary': basicSalary,
+      'basic_salary': basic_salary,
       'overtime': overtime,
-      'grossPay': grossPay,
-      'netPAy': netPAy,
+      'gross_pay': gross_pay,
+      'netpay': netpay,
       'tax': tax,
-      'sSS': sSS,
+      'sss': sss,
       'loan': loan,
-      'philHealthPayment': philHealthPayment,
-      'hDmf': hDmf,
+      'philhealth_payment': philhealth_payment,
+      'hdmf': hdmf,
       'deductions': deductions,
-      'postCode': postCode,
+      'postcode': postcode,
       'gender': gender,
       'grade': grade,
-      'dEpartmanet': dEpartmanet,
-      'paydate': paydate,
-      'taxperdio': taxperdio,
-      'philhealthnumber': philhealthnumber,
-      'pihileahlcode': pihileahlcode,
-      'taxablepay': taxablepay,
-      'pensionpay': pensionpay,
-      'otherpaymentdue': otherpaymentdue,
+      'department': department,
+      'pay_date': pay_date,
+      'tax_period': tax_period,
+      'philhealth_number': philhealth_number,
+      'philhealth_code': philhealth_code,
+      'taxable_pay': taxable_pay,
+      'pension_pay': pension_pay,
+      'other_payment_due': other_payment_due,
     };
   }
 
   factory Payroll.fromMap(Map<String, dynamic> map) {
     return Payroll(
-      employeeName: map['employeeName'] ?? '',
+      employee_name: map['employee_name'] ?? '',
       address: map['address'] ?? '',
-      ref: map['ref'] ?? '',
-      employerName: map['employerName'] ?? '',
+      reference: map['reference'] ?? '',
+      employer_name: map['employer_name'] ?? '',
       email: map['email'] ?? '',
-      jobstatus: map['Jobstatus'] ?? '',
+      job_status: map['job_status'] ?? '',
       deminimis: map['deminimis'] ?? '',
-      basicSalary: map['basicSalary'] ?? '',
+      basic_salary: map['basic_salary'] ?? '',
       overtime: map['overtime'] ?? '',
-      grossPay: map['grossPay'] ?? '',
-      netPAy: map['netPAy'] ?? '',
+      gross_pay: map['gross_pay'] ?? '',
+      netpay: map['netpay'] ?? '',
       tax: map['tax'] ?? '',
-      sSS: map['sSS'] ?? '',
+      sss: map['sss'] ?? '',
       loan: map['loan'] ?? '',
-      philHealthPayment: map['philHealthPayment'] ?? '',
-      hDmf: map['hDmf'] ?? '',
+      philhealth_payment: map['philhealth_payment'] ?? '',
+      hdmf: map['hdmf'] ?? '',
       deductions: map['deductions'] ?? '',
-      postCode: map['postCode'] ?? '',
+      postcode: map['postcode'] ?? '',
       gender: map['gender'] ?? '',
       grade: map['grade'] ?? '',
-      dEpartmanet: map['dEpartmanet'] ?? '',
-      paydate: map['paydate'] ?? '',
-      taxperdio: map['taxperdio'] ?? '',
-      philhealthnumber: map['philhealthnumber'] ?? '',
-      pihileahlcode: map['pihileahlcode'] ?? '',
-      taxablepay: map['taxablepay'] ?? '',
-      pensionpay: map['pensionpay'] ?? '',
-      otherpaymentdue: map['otherpaymentdue'] ?? '',
+      department: map['department'] ?? '',
+      pay_date: map['pay_date'] ?? '',
+      tax_period: map['tax_period'] ?? '',
+      philhealth_number: map['philhealth_number'] ?? '',
+      philhealth_code: map['philhealth_code'] ?? '',
+      taxable_pay: map['taxable_pay'] ?? '',
+      pension_pay: map['pension_pay'] ?? '',
+      other_payment_due: map['other_payment_due'] ?? '',
     );
   }
 
@@ -201,7 +201,7 @@ class Payroll {
 
   @override
   String toString() {
-    return 'Payroll(employeeName: $employeeName, address: $address, ref: $ref, employerName: $employerName, email: $email, Jobstatus: $jobstatus, deminimis: $deminimis, basicSalary: $basicSalary, overtime: $overtime, grossPay: $grossPay, netPAy: $netPAy, tax: $tax, sSS: $sSS, loan: $loan, philHealthPayment: $philHealthPayment, hDmf: $hDmf, deductions: $deductions, postCode: $postCode, gender: $gender, grade: $grade, dEpartmanet: $dEpartmanet, paydate: $paydate, taxperdio: $taxperdio, philhealthnumber: $philhealthnumber, pihileahlcode: $pihileahlcode, taxablepay: $taxablepay, pensionpay: $pensionpay, otherpaymentdue: $otherpaymentdue)';
+    return 'Payroll(employee_name: $employee_name, address: $address, reference: $reference, employer_name: $employer_name, email: $email, job_status: $job_status, deminimis: $deminimis, basic_salary: $basic_salary, overtime: $overtime, gross_pay: $gross_pay, netpay: $netpay, tax: $tax, sss: $sss, loan: $loan, philhealth_payment: $philhealth_payment, hdmf: $hdmf, deductions: $deductions, postcode: $postcode, gender: $gender, grade: $grade, department: $department, pay_date: $pay_date, tax_period: $tax_period, philhealth_number: $philhealth_number, philhealth_code: $philhealth_code, taxable_pay: $taxable_pay, pension_pay: $pension_pay, other_payment_due: $other_payment_due)';
   }
 
   @override
@@ -209,65 +209,65 @@ class Payroll {
     if (identical(this, other)) return true;
   
     return other is Payroll &&
-      other.employeeName == employeeName &&
+      other.employee_name == employee_name &&
       other.address == address &&
-      other.ref == ref &&
-      other.employerName == employerName &&
+      other.reference == reference &&
+      other.employer_name == employer_name &&
       other.email == email &&
-      other.jobstatus == jobstatus &&
+      other.job_status == job_status &&
       other.deminimis == deminimis &&
-      other.basicSalary == basicSalary &&
+      other.basic_salary == basic_salary &&
       other.overtime == overtime &&
-      other.grossPay == grossPay &&
-      other.netPAy == netPAy &&
+      other.gross_pay == gross_pay &&
+      other.netpay == netpay &&
       other.tax == tax &&
-      other.sSS == sSS &&
+      other.sss == sss &&
       other.loan == loan &&
-      other.philHealthPayment == philHealthPayment &&
-      other.hDmf == hDmf &&
+      other.philhealth_payment == philhealth_payment &&
+      other.hdmf == hdmf &&
       other.deductions == deductions &&
-      other.postCode == postCode &&
+      other.postcode == postcode &&
       other.gender == gender &&
       other.grade == grade &&
-      other.dEpartmanet == dEpartmanet &&
-      other.paydate == paydate &&
-      other.taxperdio == taxperdio &&
-      other.philhealthnumber == philhealthnumber &&
-      other.pihileahlcode == pihileahlcode &&
-      other.taxablepay == taxablepay &&
-      other.pensionpay == pensionpay &&
-      other.otherpaymentdue == otherpaymentdue;
+      other.department == department &&
+      other.pay_date == pay_date &&
+      other.tax_period == tax_period &&
+      other.philhealth_number == philhealth_number &&
+      other.philhealth_code == philhealth_code &&
+      other.taxable_pay == taxable_pay &&
+      other.pension_pay == pension_pay &&
+      other.other_payment_due == other_payment_due;
   }
 
   @override
   int get hashCode {
-    return employeeName.hashCode ^
+    return employee_name.hashCode ^
       address.hashCode ^
-      ref.hashCode ^
-      employerName.hashCode ^
+      reference.hashCode ^
+      employer_name.hashCode ^
       email.hashCode ^
-      jobstatus.hashCode ^
+      job_status.hashCode ^
       deminimis.hashCode ^
-      basicSalary.hashCode ^
+      basic_salary.hashCode ^
       overtime.hashCode ^
-      grossPay.hashCode ^
-      netPAy.hashCode ^
+      gross_pay.hashCode ^
+      netpay.hashCode ^
       tax.hashCode ^
-      sSS.hashCode ^
+      sss.hashCode ^
       loan.hashCode ^
-      philHealthPayment.hashCode ^
-      hDmf.hashCode ^
+      philhealth_payment.hashCode ^
+      hdmf.hashCode ^
       deductions.hashCode ^
-      postCode.hashCode ^
+      postcode.hashCode ^
       gender.hashCode ^
       grade.hashCode ^
-      dEpartmanet.hashCode ^
-      paydate.hashCode ^
-      taxperdio.hashCode ^
-      philhealthnumber.hashCode ^
-      pihileahlcode.hashCode ^
-      taxablepay.hashCode ^
-      pensionpay.hashCode ^
-      otherpaymentdue.hashCode;
+      department.hashCode ^
+      pay_date.hashCode ^
+      tax_period.hashCode ^
+      philhealth_number.hashCode ^
+      philhealth_code.hashCode ^
+      taxable_pay.hashCode ^
+      pension_pay.hashCode ^
+      other_payment_due.hashCode;
   }
 }

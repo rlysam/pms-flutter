@@ -12,18 +12,18 @@ class LandingPage extends StatelessWidget {
     List<String> firstBlock = [
       'Employee Name',
       'Address',
-      'Ref.',
+      'Reference',
       'Employer Name',
-      'Emila',
-      'job status',
+      'Email',
+      'Job Status',
     ];
 
     List<String> secondBlock = [
-      'De minimis',
+      'De Minimis',
       'Basic Salary',
-      'Over time',
+      'Overtime',
       'Gross Pay',
-      'Net PAy',
+      'Net Pay',
     ];
 
     List<String> thirdBlock = [
@@ -31,7 +31,7 @@ class LandingPage extends StatelessWidget {
       'SSS',
       'Loan',
       'PhilHealth Payment',
-      'HDmf(PAGIBIG)',
+      'HDMF(PAGIBIG)',
       'Deductions',
     ];
 
@@ -39,17 +39,17 @@ class LandingPage extends StatelessWidget {
       'Post Code',
       'Gender',
       'Grade',
-      'DEpartmanet',
+      'Department',
     ];
 
     List<String> fifthBlock = [
-      'Pay date d/m/y',
-      'Tax perdio',
-      'Philhealth number',
-      'pihileahl code',
-      'Taxable pay',
-      'pension pay',
-      'other payment due',
+      'Pay Date d/m/y',
+      'Tax Period',
+      'Philhealth Number',
+      'Philhealth Code',
+      'Taxable Pay',
+      'Pension Pay',
+      'Other Payment Due',
     ];
 
     // TODO : 2D List of TextEditingContr
@@ -96,7 +96,7 @@ class LandingPage extends StatelessWidget {
     List<String> btnLabels = [
       'Wage Payment',
       'Reset System',
-      'PAy Refernce',
+      'Pay Reference',
       'Pay Code',
       'Exit',
     ];
