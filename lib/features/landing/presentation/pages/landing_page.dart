@@ -1,5 +1,4 @@
 import 'package:division/division.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customButton.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customfield.dart';
@@ -9,6 +8,7 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     List<String> firstBlock = [
       'Employee Name',
       'Address',
@@ -52,12 +52,44 @@ class LandingPage extends StatelessWidget {
       'other payment due',
     ];
 
+    // TODO : 2D List of TextEditingContr
+    List<TextEditingController> _field1 =
+        List.generate(6, (i) => TextEditingController());
+    List<TextEditingController> _field2 =
+        List.generate(5, (i) => TextEditingController());
+    List<TextEditingController> _field3 =
+        List.generate(6, (i) => TextEditingController());
+    List<TextEditingController> _field4 =
+        List.generate(4, (i) => TextEditingController());
+    List<TextEditingController> _field5 =
+        List.generate(7, (i) => TextEditingController());
+
+// ignore: todo
 // TODO Ito yung importante para ma-call sa API
     List<VoidCallback> functions = [
-      () {},
-      () {},
-      () {},
-      () {},
+        // TODO gawin yung send to backend
+      () {
+        _field1[3].text = 'New Value';
+      }, // main functionality = send all data to backend
+      () {
+        for (var x in _field1) {
+          x.text = "";
+        }
+        for (var x in _field2) {
+          x.text = "";
+        }
+        for (var x in _field3) {
+          x.text = "";
+        }
+        for (var x in _field4) {
+          x.text = "";
+        }
+        for (var x in _field5) {
+          x.text = "";
+        }
+      }, // Reset all fields
+      () {}, // READ PayRef
+      () {}, // Pay Code
       () {},
     ];
 
@@ -68,9 +100,6 @@ class LandingPage extends StatelessWidget {
       'Pay Code',
       'Exit',
     ];
-
-    // ignore: avoid_print
-    sam() => print('hello');
 
     Size size = MediaQuery.of(context).size;
 
@@ -108,6 +137,7 @@ class LandingPage extends StatelessWidget {
                                   return SizedWidget(
                                       isWide: true,
                                       widget: CustomTextField(
+                                          inputController: _field1[index],
                                           label: firstBlock[index]));
                                 },
                               ),
@@ -127,6 +157,7 @@ class LandingPage extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   return SizedWidget(
                                       widget: CustomTextField(
+                                          inputController: _field2[index],
                                           label: secondBlock[index]));
                                 },
                               ),
@@ -141,6 +172,7 @@ class LandingPage extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   return SizedWidget(
                                       widget: CustomTextField(
+                                          inputController: _field3[index],
                                           label: thirdBlock[index]));
                                 },
                               ),
@@ -168,8 +200,9 @@ class LandingPage extends StatelessWidget {
                             itemBuilder: (BuildContext context, int index) {
                               return SizedWidget(
                                   isWide: true,
-                                  widget:
-                                      CustomTextField(label: fourthBlock[index]));
+                                  widget: CustomTextField(
+                                      inputController: _field4[index],
+                                      label: fourthBlock[index]));
                             },
                           ),
                         ),
@@ -187,6 +220,7 @@ class LandingPage extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   return SizedWidget(
                                       widget: CustomTextField(
+                                          inputController: _field5[index],
                                           label: fifthBlock[index]));
                                 },
                               ),

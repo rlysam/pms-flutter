@@ -4,21 +4,29 @@ import 'package:division/division.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
-  final String label;
   const CustomTextField({
     Key? key,
     required this.label,
+    required this.inputController,
   }) : super(key: key);
+
+  final TextEditingController inputController;
+  final String label;
+//   final VoidCallback onPressed;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  TextEditingController inputController = TextEditingController();
+  @override
+  void dispose() {
+    widget.inputController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: EdgeInsets.all(8),
       child: Row(
@@ -29,7 +37,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 200),
             child: TextFormField(
-              controller: inputController,
+              controller: widget.inputController,
               onChanged: (value) => print(value),
               decoration: CommonStyleInput.textFieldStyle(
                 labelTextStr: widget.label,
@@ -43,13 +51,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 }
 
-   final labelFont = TxtStyle()
+final labelFont = TxtStyle()
   ..fontSize(18)
   ..letterSpacing(1.2)
   ..bold()
   ..textOverflow(TextOverflow.ellipsis)
   ..textColor(Colors.black);
-
 
 class CommonStyleInput {
   static InputDecoration textFieldStyle({
