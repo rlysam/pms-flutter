@@ -13,7 +13,7 @@ class Payroll {
       String basic_salary;
       String overtime;
       String gross_pay;
-      String netpay;
+      String net_pay;
 
       String tax;
       String sss;
@@ -45,7 +45,7 @@ class Payroll {
     required this.basic_salary,
     required this.overtime,
     required this.gross_pay,
-    required this.netpay,
+    required this.net_pay,
     required this.tax,
     required this.sss,
     required this.loan,
@@ -78,7 +78,7 @@ class Payroll {
     String? basic_salary,
     String? overtime,
     String? gross_pay,
-    String? netpay,
+    String? net_pay,
     String? tax,
     String? sss,
     String? loan,
@@ -108,7 +108,7 @@ class Payroll {
       basic_salary: basic_salary ?? this.basic_salary,
       overtime: overtime ?? this.overtime,
       gross_pay: gross_pay ?? this.gross_pay,
-      netpay: netpay ?? this.netpay,
+      net_pay: net_pay ?? this.net_pay,
       tax: tax ?? this.tax,
       sss: sss ?? this.sss,
       loan: loan ?? this.loan,
@@ -141,7 +141,7 @@ class Payroll {
       'basic_salary': basic_salary,
       'overtime': overtime,
       'gross_pay': gross_pay,
-      'netpay': netpay,
+      'net_pay': net_pay,
       'tax': tax,
       'sss': sss,
       'loan': loan,
@@ -174,7 +174,7 @@ class Payroll {
       basic_salary: map['basic_salary'] ?? '',
       overtime: map['overtime'] ?? '',
       gross_pay: map['gross_pay'] ?? '',
-      netpay: map['netpay'] ?? '',
+      net_pay: map['net_pay'] ?? '',
       tax: map['tax'] ?? '',
       sss: map['sss'] ?? '',
       loan: map['loan'] ?? '',
@@ -201,7 +201,7 @@ class Payroll {
 
   @override
   String toString() {
-    return 'Payroll(employee_name: $employee_name, address: $address, reference: $reference, employer_name: $employer_name, email: $email, job_status: $job_status, deminimis: $deminimis, basic_salary: $basic_salary, overtime: $overtime, gross_pay: $gross_pay, netpay: $netpay, tax: $tax, sss: $sss, loan: $loan, philhealth_payment: $philhealth_payment, hdmf: $hdmf, deductions: $deductions, postcode: $postcode, gender: $gender, grade: $grade, department: $department, pay_date: $pay_date, tax_period: $tax_period, philhealth_number: $philhealth_number, philhealth_code: $philhealth_code, taxable_pay: $taxable_pay, pension_pay: $pension_pay, other_payment_due: $other_payment_due)';
+    return 'Payroll(employee_name: $employee_name, address: $address, reference: $reference, employer_name: $employer_name, email: $email, job_status: $job_status, deminimis: $deminimis, basic_salary: $basic_salary, overtime: $overtime, gross_pay: $gross_pay, net_pay: $net_pay, tax: $tax, sss: $sss, loan: $loan, philhealth_payment: $philhealth_payment, hdmf: $hdmf, deductions: $deductions, postcode: $postcode, gender: $gender, grade: $grade, department: $department, pay_date: $pay_date, tax_period: $tax_period, philhealth_number: $philhealth_number, philhealth_code: $philhealth_code, taxable_pay: $taxable_pay, pension_pay: $pension_pay, other_payment_due: $other_payment_due)';
   }
 
   @override
@@ -219,7 +219,7 @@ class Payroll {
       other.basic_salary == basic_salary &&
       other.overtime == overtime &&
       other.gross_pay == gross_pay &&
-      other.netpay == netpay &&
+      other.net_pay == net_pay &&
       other.tax == tax &&
       other.sss == sss &&
       other.loan == loan &&
@@ -251,7 +251,7 @@ class Payroll {
       basic_salary.hashCode ^
       overtime.hashCode ^
       gross_pay.hashCode ^
-      netpay.hashCode ^
+      net_pay.hashCode ^
       tax.hashCode ^
       sss.hashCode ^
       loan.hashCode ^
