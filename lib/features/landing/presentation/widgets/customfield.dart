@@ -35,7 +35,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           Txt(widget.label, style: labelFont),
           const SizedBox(width: 10),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 200),
+            constraints: BoxConstraints(maxWidth: 220),
             child: TextFormField(
               controller: widget.inputController,
               onChanged: (value) => print(value),
@@ -50,6 +50,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
+
+// ! Layout Styles
 
 final labelFont = TxtStyle()
   ..fontSize(18)

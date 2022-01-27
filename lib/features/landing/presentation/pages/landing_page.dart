@@ -47,7 +47,7 @@ class LandingPage extends StatelessWidget {
       'Pay Date d/m/y',
       'Philhealth Number',
       'Taxable Pay',
-      'Pension Pay',
+      'SSS Pay',
       'Other Payment Due',
     ];
 
@@ -122,10 +122,10 @@ class LandingPage extends StatelessWidget {
             department: _field4[3].text,
 
             pay_date: _field5[0].text,
-            philhealth_number: _field5[2].text,
-            taxable_pay: _field5[4].text,
-            pension_pay: _field5[5].text,
-            other_payment_due: _field5[6].text,
+            philhealth_number: _field5[1].text,
+            taxable_pay: _field5[2].text,
+            pension_pay: _field5[3].text,
+            other_payment_due: _field5[4].text,
           );
 
           var response = sendPayrollAll(data);
@@ -167,6 +167,7 @@ class LandingPage extends StatelessWidget {
 
     Size size = MediaQuery.of(context).size;
 
+    var sectionsWidth = 440.0;
     return Scaffold(
       body: SizedBox(
         height: size.height,
@@ -193,7 +194,7 @@ class LandingPage extends StatelessWidget {
                           children: [
                             Container(
                               color: const Color.fromARGB(255, 214, 255, 81),
-                              width: 405,
+                              width: sectionsWidth,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: firstBlock.length,
@@ -214,7 +215,7 @@ class LandingPage extends StatelessWidget {
                             //secondblock
                             Container(
                               color: const Color.fromARGB(255, 152, 255, 250),
-                              width: 405,
+                              width: sectionsWidth,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: secondBlock.length,
@@ -229,7 +230,7 @@ class LandingPage extends StatelessWidget {
                             //thirdblock
                             Container(
                               color: const Color.fromARGB(255, 255, 152, 224),
-                              width: 405,
+                              width: sectionsWidth,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: thirdBlock.length,
@@ -257,7 +258,7 @@ class LandingPage extends StatelessWidget {
                         //fourth block
                         Container(
                           color: const Color.fromARGB(255, 109, 255, 141),
-                          width: 405,
+                          width: sectionsWidth,
                           child: ListView.builder(
                             shrinkWrap: true,
                             itemCount: fourthBlock.length,
@@ -277,7 +278,7 @@ class LandingPage extends StatelessWidget {
                             //fiftch block
                             Container(
                               color: const Color.fromARGB(255, 255, 234, 173),
-                              width: 405,
+                              width: sectionsWidth,
                               child: ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: fifthBlock.length,
