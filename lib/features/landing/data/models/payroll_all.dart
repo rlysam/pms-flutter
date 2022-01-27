@@ -1,6 +1,8 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 
-class Payroll {
+class PayrollAll {
 
       String employee_name;
       String address;
@@ -34,7 +36,7 @@ class Payroll {
       String pension_pay;
       String other_payment_due;
 
-  Payroll({
+  PayrollAll({
     required this.employee_name,
     required this.address,
     required this.reference,
@@ -67,7 +69,7 @@ class Payroll {
 
 
 
-  Payroll copyWith({
+  PayrollAll copyWith({
     String? employee_name,
     String? address,
     String? reference,
@@ -97,7 +99,7 @@ class Payroll {
     String? pension_pay,
     String? other_payment_due,
   }) {
-    return Payroll(
+    return PayrollAll(
       employee_name: employee_name ?? this.employee_name,
       address: address ?? this.address,
       reference: reference ?? this.reference,
@@ -162,8 +164,9 @@ class Payroll {
     };
   }
 
-  factory Payroll.fromMap(Map<String, dynamic> map) {
-    return Payroll(
+
+  factory PayrollAll.fromMap(Map<String, dynamic> map) {
+    return PayrollAll(
       employee_name: map['employee_name'] ?? '',
       address: map['address'] ?? '',
       reference: map['reference'] ?? '',
@@ -197,7 +200,8 @@ class Payroll {
 
   String toJson() => json.encode(toMap());
 
-  factory Payroll.fromJson(String source) => Payroll.fromMap(json.decode(source));
+
+  factory PayrollAll.fromJson(String source) => PayrollAll.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -208,7 +212,7 @@ class Payroll {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
-    return other is Payroll &&
+    return other is PayrollAll &&
       other.employee_name == employee_name &&
       other.address == address &&
       other.reference == reference &&

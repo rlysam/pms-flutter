@@ -1,5 +1,7 @@
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
+import 'package:payrollsystem/features/landing/data/datasources/payroll_api.dart';
+import 'package:payrollsystem/features/landing/data/models/payroll_all.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customButton.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customfield.dart';
 
@@ -8,7 +10,6 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<String> firstBlock = [
       'Employee Name',
       'Address',
@@ -66,31 +67,97 @@ class LandingPage extends StatelessWidget {
 
 // ignore: todo
 // TODO Ito yung importante para ma-call sa API
+
     List<VoidCallback> functions = [
-        // TODO gawin yung send to backend
       () {
-        _field1[3].text = 'New Value';
+        bool empty = false;
+
+        for (var x in _field1) {
+          x.text == "" ? empty = true : null;
+        }
+        for (var x in _field2) {
+          x.text == "" ? empty = true : null;
+        }
+        for (var x in _field3) {
+          x.text == "" ? empty = true : null;
+        }
+        for (var x in _field4) {
+          x.text == "" ? empty = true : null;
+        }
+        for (var x in _field5) {
+          x.text == "" ? empty = true : null;
+        }
+
+        empty
+            ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text("Fill all the fields",
+                    style: TextStyle(color: Colors.red)),
+              ))
+            //
+            : null;
+
+        if (!empty) {
+          PayrollAll data = PayrollAll(
+            employee_name: _field1[0].text,
+            address: _field1[1].text,
+            reference: _field1[2].text,
+            employer_name: _field1[3].text,
+            email: _field1[4].text,
+            job_status: _field1[5].text,
+
+            deminimis: _field2[0].text,
+            basic_salary: _field2[1].text,
+            overtime: _field2[2].text,
+            gross_pay: _field2[3].text,
+            net_pay: _field2[4].text,
+
+            tax: _field3[0].text,
+            sss: _field3[1].text,
+            loan: _field3[2].text,
+            philhealth_payment: _field3[3].text,
+            hdmf: _field3[4].text,
+            deductions: _field3[5].text,
+
+            postcode: _field4[0].text,
+            gender: _field4[1].text,
+            grade: _field4[2].text,
+            department: _field4[3].text,
+
+            pay_date: _field5[0].text,
+            tax_period: _field5[1].text,
+            philhealth_number: _field5[2].text,
+            philhealth_code: _field5[3].text,
+            taxable_pay: _field5[4].text,
+            pension_pay: _field5[5].text,
+            other_payment_due: _field5[6].text,
+          );
+
+          var response = sendPayrollAll(data);
+        //   print(response);
+        }
+
       }, // main functionality = send all data to backend
       () {
         for (var x in _field1) {
-          x.text = "";
+          x.text = "Sample";
         }
         for (var x in _field2) {
-          x.text = "";
+          x.text = "Sample";
         }
         for (var x in _field3) {
-          x.text = "";
+          x.text = "Sample";
         }
         for (var x in _field4) {
-          x.text = "";
+          x.text = "Sample";
         }
         for (var x in _field5) {
-          x.text = "";
+          x.text = "Sample";
         }
       }, // Reset all fields
       () {}, // READ PayRef
       () {}, // Pay Code
-      () {},
+      () {}, // view reports ALL Transactions - yung need ng 2 admin auth
+      () {}, //exit close program
     ];
 
     List<String> btnLabels = [
@@ -98,6 +165,7 @@ class LandingPage extends StatelessWidget {
       'Reset System',
       'Pay Reference',
       'Pay Code',
+      'View Reports',
       'Exit',
     ];
 
@@ -119,7 +187,7 @@ class LandingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(30),
-                    color: Color.fromARGB(255, 255, 239, 192),
+                    color: const Color.fromARGB(255, 255, 239, 192),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,7 +254,7 @@ class LandingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(30),
-                    color: Color.fromARGB(255, 199, 240, 236),
+                    color: const Color.fromARGB(255, 199, 240, 236),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
