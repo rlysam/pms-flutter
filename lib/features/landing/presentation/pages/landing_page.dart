@@ -45,9 +45,7 @@ class LandingPage extends StatelessWidget {
 
     List<String> fifthBlock = [
       'Pay Date d/m/y',
-      'Tax Period',
       'Philhealth Number',
-      'Philhealth Code',
       'Taxable Pay',
       'Pension Pay',
       'Other Payment Due',
@@ -124,9 +122,7 @@ class LandingPage extends StatelessWidget {
             department: _field4[3].text,
 
             pay_date: _field5[0].text,
-            tax_period: _field5[1].text,
             philhealth_number: _field5[2].text,
-            philhealth_code: _field5[3].text,
             taxable_pay: _field5[4].text,
             pension_pay: _field5[5].text,
             other_payment_due: _field5[6].text,
