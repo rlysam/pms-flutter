@@ -29,9 +29,7 @@ class PayrollAll {
       String department;
 
       String pay_date;
-      String tax_period;
       String philhealth_number;
-      String philhealth_code;
       String taxable_pay;
       String pension_pay;
       String other_payment_due;
@@ -59,9 +57,7 @@ class PayrollAll {
     required this.grade,
     required this.department,
     required this.pay_date,
-    required this.tax_period,
     required this.philhealth_number,
-    required this.philhealth_code,
     required this.taxable_pay,
     required this.pension_pay,
     required this.other_payment_due,
@@ -92,9 +88,7 @@ class PayrollAll {
     String? grade,
     String? department,
     String? pay_date,
-    String? tax_period,
     String? philhealth_number,
-    String? philhealth_code,
     String? taxable_pay,
     String? pension_pay,
     String? other_payment_due,
@@ -122,9 +116,7 @@ class PayrollAll {
       grade: grade ?? this.grade,
       department: department ?? this.department,
       pay_date: pay_date ?? this.pay_date,
-      tax_period: tax_period ?? this.tax_period,
       philhealth_number: philhealth_number ?? this.philhealth_number,
-      philhealth_code: philhealth_code ?? this.philhealth_code,
       taxable_pay: taxable_pay ?? this.taxable_pay,
       pension_pay: pension_pay ?? this.pension_pay,
       other_payment_due: other_payment_due ?? this.other_payment_due,
@@ -155,9 +147,7 @@ class PayrollAll {
       'grade': grade,
       'department': department,
       'pay_date': pay_date,
-      'tax_period': tax_period,
       'philhealth_number': philhealth_number,
-      'philhealth_code': philhealth_code,
       'taxable_pay': taxable_pay,
       'pension_pay': pension_pay,
       'other_payment_due': other_payment_due,
@@ -189,9 +179,7 @@ class PayrollAll {
       grade: map['grade'] ?? '',
       department: map['department'] ?? '',
       pay_date: map['pay_date'] ?? '',
-      tax_period: map['tax_period'] ?? '',
       philhealth_number: map['philhealth_number'] ?? '',
-      philhealth_code: map['philhealth_code'] ?? '',
       taxable_pay: map['taxable_pay'] ?? '',
       pension_pay: map['pension_pay'] ?? '',
       other_payment_due: map['other_payment_due'] ?? '',
@@ -235,9 +223,7 @@ class PayrollAll {
       other.grade == grade &&
       other.department == department &&
       other.pay_date == pay_date &&
-      other.tax_period == tax_period &&
       other.philhealth_number == philhealth_number &&
-      other.philhealth_code == philhealth_code &&
       other.taxable_pay == taxable_pay &&
       other.pension_pay == pension_pay &&
       other.other_payment_due == other_payment_due;
@@ -267,9 +253,7 @@ class PayrollAll {
       grade.hashCode ^
       department.hashCode ^
       pay_date.hashCode ^
-      tax_period.hashCode ^
       philhealth_number.hashCode ^
-      philhealth_code.hashCode ^
       taxable_pay.hashCode ^
       pension_pay.hashCode ^
       other_payment_due.hashCode;
