@@ -27,24 +27,23 @@ class PayRefData {
 
   Map<String, dynamic> toMap() {
     return {
-      'pay_date': pay_date,
-      'reference': reference,
-      'philhealth_number': philhealth_number,
+      "pay_date": pay_date,
+      "reference": reference,
+      "philhealth_number": philhealth_number,
     };
   }
 
   factory PayRefData.fromMap(Map<String, dynamic> map) {
     return PayRefData(
-      pay_date: map['pay_date'] ?? '',
-      reference: map['reference'] ?? '',
-      philhealth_number: map['philhealth_number'] ?? '',
+      pay_date: map["pay_date"] ?? "",
+      reference: map["reference"] ?? "",
+      philhealth_number: map["philhealth_number"] ?? "",
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory PayRefData.fromJson(String source) =>
-      PayRefData.fromMap(json.decode(source));
+  factory PayRefData.fromJson(String source) => PayRefData.fromMap(json.decode(source));
 
   @override
   String toString() =>

@@ -1,9 +1,12 @@
-
 import 'package:encrypt/encrypt.dart' as security;
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
+import 'package:payrollsystem/features/landing/data/datasources/initial_data_api.dart';
 import 'package:payrollsystem/features/landing/data/datasources/payref_api.dart';
 import 'package:payrollsystem/features/landing/data/datasources/payroll_sendall_api.dart';
+import 'package:payrollsystem/features/landing/data/models/initial_data.dart';
+import 'package:payrollsystem/features/landing/data/models/initial_send.dart';
+import 'package:payrollsystem/features/landing/data/models/payref.dart';
 import 'package:payrollsystem/features/landing/data/models/payroll_all.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customButton.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customfield.dart';
@@ -56,7 +59,6 @@ class LandingPage extends StatelessWidget {
       'Other Payment Due',
     ];
 
-    // TODO : 2D List of TextEditingContr
     List<TextEditingController> _field1 =
         List.generate(6, (i) => TextEditingController());
     List<TextEditingController> _field2 =
@@ -72,96 +74,126 @@ class LandingPage extends StatelessWidget {
       () {
         bool empty = false;
 
-        for (var x in _field1) {
-          x.text == "" ? empty = true : null;
-        }
-        for (var x in _field2) {
-          x.text == "" ? empty = true : null;
-        }
-        for (var x in _field3) {
-          x.text == "" ? empty = true : null;
-        }
-        for (var x in _field4) {
-          x.text == "" ? empty = true : null;
-        }
-        for (var x in _field5) {
-          x.text == "" ? empty = true : null;
-        }
+// TODO CALL initial_data_API
+
+        var text2 = _field2[0].text; //DM
+        var text3 = _field2[1].text; //BS
+        var text4 = _field2[2].text; //OT
+        var text5 = _field3[2].text; //LOAN
+
+        text2.isEmpty ? empty = true : null;
+        text3.isEmpty ? empty = true : null;
+        text4.isEmpty ? empty = true : null;
+        text5.isEmpty ? empty = true : null;
 
         empty
             ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                 content: Text("Fill all the fields",
                     style: TextStyle(color: Colors.red)),
               ))
-            //
             : null;
 
         if (!empty) {
-          PayrollAll data = PayrollAll(
-            employee_name: _field1[0].text,
-            address: _field1[1].text,
-            reference: _field1[2].text,
-            employer_name: _field1[3].text,
-            email: _field1[4].text,
-            job_status: _field1[5].text,
+          InitialSend theInitialData = InitialSend(
+              basic_salary: text3,
+              deminimis: text2,
+              overtime: text4,
+              loan: text5);
+          sendInitialData(theInitialData).then((initialData) {
+            _field2[3].text = initialData.gross_pay;
+            _field2[4].text = initialData.net_pay;
 
-            deminimis: _field2[0].text,
-            basic_salary: _field2[1].text,
-            overtime: _field2[2].text,
-            gross_pay: _field2[3].text,
-            net_pay: _field2[4].text,
+            _field3[0].text = initialData.tax;
+            _field3[1].text = initialData.sss;
+            _field3[3].text = initialData.philhealth_payment;
+            _field3[4].text = initialData.hdmf;
+            _field3[5].text = initialData.deductions;
 
-            tax: _field3[0].text,
-            sss: _field3[1].text,
-            loan: _field3[2].text,
-            philhealth_payment: _field3[3].text,
-            hdmf: _field3[4].text,
-            deductions: _field3[5].text,
+            _field5[2].text = initialData.taxable_pay;
+            _field5[3].text = initialData.pension_pay;
+            _field5[4].text = initialData.other_payment_due;
 
-            postcode: _field4[0].text,
-            gender: _field4[1].text,
-            grade: _field4[2].text,
-            department: _field4[3].text,
+            //   send email
 
-            pay_date: _field5[0].text,
-            philhealth_number: _field5[1].text,
-            taxable_pay: _field5[2].text,
-            pension_pay: _field5[3].text,
-            other_payment_due: _field5[4].text,
-          );
+            //   TODO Check All fields
+            // kapag walang empty, send
+            for (var x in _field1) {
+              x.text == "" ? empty = true : null;
+            }
+            for (var x in _field2) {
+              x.text == "" ? empty = true : null;
+            }
+            for (var x in _field3) {
+              x.text == "" ? empty = true : null;
+            }
+            for (var x in _field4) {
+              x.text == "" ? empty = true : null;
+            }
+            for (var x in _field5) {
+              x.text == "" ? empty = true : null;
+            }
 
-          var response = sendPayrollAll(data);
+            if (_field1[4].text.isNotEmpty) {
+              initialData.employee_name = _field1[0].text;
+              initialData.address = _field1[1].text;
+              initialData.employer_name = _field1[3].text;
+              initialData.email = _field1[4].text;
+              initialData.job_status = _field1[5].text;
+
+              initialData.postcode = _field4[0].text;
+              initialData.gender = _field4[1].text;
+              initialData.grade = _field4[2].text;
+              initialData.department = _field4[3].text;
+
+              initialData.deminimis = _field2[0].text;
+              initialData.basic_salary = _field2[1].text;
+              initialData.overtime = _field2[2].text;
+              initialData.loan = _field3[2].text;
+              
+              
+             initialData.pay_date =_field5[0].text;
+             initialData.philhealth_number =_field5[1].text;
+             initialData.reference =_field1[2].text;
+
+              sendPayrollAll(initialData);
+            }
+          });
         }
-
+        // empty = false;
       }, // main functionality = send all data to backend
       () {
         for (var x in _field1) {
-          x.text = "Sample";
+          x.text = "";
         }
         for (var x in _field2) {
-          x.text = "Sample";
+          x.text = "";
         }
         for (var x in _field3) {
-          x.text = "Sample";
+          x.text = "";
         }
         for (var x in _field4) {
-          x.text = "Sample";
+          x.text = "";
         }
         for (var x in _field5) {
-          x.text = "Sample";
+          x.text = "";
         }
       }, // Reset all fields
       () {
-          var payrefs = getPayref();
-
+        getPayref().then((value) {
+          _field5[0].text = value.pay_date;
+          _field5[1].text = value.philhealth_number;
+          _field1[2].text = value.reference;
+        });
       }, // READ PayRef from backend (PMS.py)
       () {}, // view reports ALL Transactions - yung need ng 2 admin auth
-      () {}, //exit close program
+      () {
+
+      }, //exit close program
     ];
 
     List<String> btnLabels = [
       'Wage Payment',
-      'Reset System',//reset Fields
+      'Reset System', //reset Fields
       'Pay Reference', //get from PMS.py
       'View Reports', //kalokohan ni lyah na report
       'Exit',

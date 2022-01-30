@@ -11,11 +11,11 @@ String encrypt(String mapStringToB64MapValue) {
   return encrypted.base64;
 }
 
-String decrypt(Map mapWith64BitValue) {
+String decrypt(String b64String) {
   Codec<String, String> stringToBase64 = utf8.fuse(base64);
   final key = Key.fromBase64(stringToBase64.encode('my 32 length key................')); //32 char
   final iv = IV.fromBase64(stringToBase64.encode("1234567890123456")); //16 char
   final encrypter = Encrypter(AES(key, mode: AESMode.cbc));
-  final decrypted = encrypter.decrypt64(mapWith64BitValue['securedData'], iv: iv);
+  final decrypted = encrypter.decrypt64(b64String, iv: iv);
   return decrypted; //String of JSON
 }
