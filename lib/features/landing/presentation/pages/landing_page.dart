@@ -1,9 +1,14 @@
+
+import 'package:encrypt/encrypt.dart' as security;
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
-import 'package:payrollsystem/features/landing/data/datasources/payroll_api.dart';
+import 'package:payrollsystem/features/landing/data/datasources/payref_api.dart';
+import 'package:payrollsystem/features/landing/data/datasources/payroll_sendall_api.dart';
 import 'package:payrollsystem/features/landing/data/models/payroll_all.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customButton.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customfield.dart';
+
+// import 'package:aes_crypt_null_safe/aes_crypt_null_safe.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -62,9 +67,6 @@ class LandingPage extends StatelessWidget {
         List.generate(4, (i) => TextEditingController());
     List<TextEditingController> _field5 =
         List.generate(7, (i) => TextEditingController());
-
-// ignore: todo
-// TODO Ito yung importante para ma-call sa API
 
     List<VoidCallback> functions = [
       () {
@@ -129,7 +131,6 @@ class LandingPage extends StatelessWidget {
           );
 
           var response = sendPayrollAll(data);
-        //   print(response);
         }
 
       }, // main functionality = send all data to backend
@@ -150,18 +151,19 @@ class LandingPage extends StatelessWidget {
           x.text = "Sample";
         }
       }, // Reset all fields
-      () {}, // READ PayRef
-      () {}, // Pay Code
+      () {
+          var payrefs = getPayref();
+
+      }, // READ PayRef from backend (PMS.py)
       () {}, // view reports ALL Transactions - yung need ng 2 admin auth
       () {}, //exit close program
     ];
 
     List<String> btnLabels = [
       'Wage Payment',
-      'Reset System',
-      'Pay Reference',
-      'Pay Code',
-      'View Reports',
+      'Reset System',//reset Fields
+      'Pay Reference', //get from PMS.py
+      'View Reports', //kalokohan ni lyah na report
       'Exit',
     ];
 
