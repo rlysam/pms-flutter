@@ -206,6 +206,7 @@ Navigator.of(context).pushNamed('/');
     Size size = MediaQuery.of(context).size;
 
     var sectionsWidth = 440.0;
+
     return Scaffold(
       body: SizedBox(
         height: size.height,
@@ -223,154 +224,157 @@ Navigator.of(context).pushNamed('/');
               ],
             ),
             const SizedBox(height: 20),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                    //first block
-                                Container(
-                                  width: sectionsWidth,
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: firstBlock.length,
-                                    itemBuilder: (BuildContext context, int index) {
-                                      return SizedWidget(
-                                          isWide: true,
-                                          widget: CustomTextField(
-                                              inputController: _field1[index],
-                                              label: firstBlock[index]));
-                                    },
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 50),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                      //first block
+                                  Container(
+                                    width: sectionsWidth,
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: firstBlock.length,
+                                      itemBuilder: (BuildContext context, int index) {
+                                        return SizedWidget(
+                                            isWide: true,
+                                            widget: CustomTextField(
+                                                inputController: _field1[index],
+                                                label: firstBlock[index]));
+                                      },
+                                    ),
                                   ),
+                              //thirdblock
+                              Container(
+                                width: sectionsWidth,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: thirdBlock.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return SizedWidget(
+                                        widget: CustomTextField(
+                                            inputController: _field3[index],
+                                            label: thirdBlock[index]));
+                                  },
                                 ),
-                            //thirdblock
-                            Container(
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: thirdBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      widget: CustomTextField(
-                                          inputController: _field3[index],
-                                          label: thirdBlock[index]));
-                                },
                               ),
-                            ),
-                            
+                              
 
-                              ],
-                            ),
-                          ],
-                        ),
-                        
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //secondblock
-                            Container(
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: secondBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      widget: CustomTextField(
-                                          inputController: _field2[index],
-                                          label: secondBlock[index]));
-                                },
+                                ],
                               ),
-                            ),
+                            ],
+                          ),
+                          
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //secondblock
+                              Container(
+                                width: sectionsWidth,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: secondBlock.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return SizedWidget(
+                                        widget: CustomTextField(
+                                            inputController: _field2[index],
+                                            label: secondBlock[index]));
+                                  },
+                                ),
+                              ),
 
 SizedBox(height: 30,),
-                            Container(
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: fifthBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      widget: CustomTextField(
-                                          inputController: _field5[index],
-                                          label: fifthBlock[index]));
-                                },
+                              Container(
+                                width: sectionsWidth,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: fifthBlock.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return SizedWidget(
+                                        widget: CustomTextField(
+                                            inputController: _field5[index],
+                                            label: fifthBlock[index]));
+                                  },
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [                        //fourth block
-                        Container(
-                          width: sectionsWidth,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: fourthBlock.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return SizedWidget(
-                                  isWide: true,
-                                  widget: CustomTextField(
-                                      inputController: _field4[index],
-                                      label: fourthBlock[index]));
-                            },
+                            ],
                           ),
-                        ),
-                        const SizedBox(height: 30),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //Buttons
-                            SizedBox(
-                              width: 200,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: btnLabels.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return CustomButtom(
-                                      onPressed: functions[index],
-                                      label: btnLabels[index]);
-                                },
-                              ),
-                            ),
-                          
-                          SizedBox(width: 30),
-                          Column(
-                            //   mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                  SizedBox(height: 30),
-                                  Txt('1. Genererate Pay Reference',style: styleInstructions,),
-                                  SizedBox(height: 5),
-                                  Txt('2. Fill Employee Basic Information',style: styleInstructions,),
-                                  SizedBox(height: 5),
-                                  Txt('3. Add De Minimis, Basic Salary, Overtime and Loan',style: styleInstructions,),
-                              ],
-                          )
-                          ],
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [                        //fourth block
+                          Container(
+                            width: sectionsWidth,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: fourthBlock.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return SizedWidget(
+                                    isWide: true,
+                                    widget: CustomTextField(
+                                        inputController: _field4[index],
+                                        label: fourthBlock[index]));
+                              },
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //Buttons
+                              SizedBox(
+                                width: 200,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: btnLabels.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return CustomButtom(
+                                        onPressed: functions[index],
+                                        label: btnLabels[index]);
+                                  },
+                                ),
+                              ),
+                            
+                            SizedBox(width: 30),
+                            Column(
+                              //   mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                    SizedBox(height: 30),
+                                    Txt('1. Genererate Pay Reference',style: styleInstructions,),
+                                    SizedBox(height: 5),
+                                    Txt('2. Fill Employee Basic Information',style: styleInstructions,),
+                                    SizedBox(height: 5),
+                                    Txt('3. Add De Minimis, Basic Salary, Overtime and Loan',style: styleInstructions,),
+                                ],
+                            )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

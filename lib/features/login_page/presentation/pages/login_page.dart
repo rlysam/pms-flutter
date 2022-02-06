@@ -1,6 +1,8 @@
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
+import 'package:payrollsystem/authentication_service.dart';
 import 'package:payrollsystem/styles.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -43,9 +45,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 MouseRegion(
-                    cursor: SystemMouseCursors.click,
+                  cursor: SystemMouseCursors.click,
                   child: GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed('/landingPage'),
+                    onTap: () {
+                      context.read<AuthenticationService>().signIn(
+                            email: _Username.text.toString().trim(),
+                            password: _Password.text.toString().trim(),
+                          );
+                    },
                     child: Parent(
                       style: styleButtonBlue
                         ..clone()
