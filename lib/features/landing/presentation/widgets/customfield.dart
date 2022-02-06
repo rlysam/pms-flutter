@@ -2,6 +2,7 @@
 
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
+import 'package:payrollsystem/styles.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -27,6 +28,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
+      List<String> mgaUserInputFields = [
+      'Employee Name',
+      'Address',
+      'Employer Name',
+      'Email',
+      'Job Status',
+      'De Minimis',
+      'Basic Salary',
+      'Overtime',
+      'Loan',
+      'Post Code',
+      'Gender',
+      'Grade',
+      'Department',
+      ];
+
     return Padding(
       padding: EdgeInsets.all(8),
       child: Row(
@@ -38,6 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             constraints: BoxConstraints(maxWidth: 220),
             child: TextFormField(
               controller: widget.inputController,
+              enabled: mgaUserInputFields.contains(widget.label)?true:false,
               onChanged: (value) => print(value),
               decoration: CommonStyleInput.textFieldStyle(
                 labelTextStr: widget.label,
@@ -88,7 +106,7 @@ class CommonStyleInput {
         labelText: labelTextStr,
         hintText: hintTextStr,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: kWhite,
         enabledBorder: (isCorrect ? outline() : outlineRed()),
         focusedBorder: (isCorrect ? outline() : outlineRed()),
         disabledBorder: (isCorrect ? outline() : outlineRed()),

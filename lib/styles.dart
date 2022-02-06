@@ -56,6 +56,14 @@ final styleHeaderText = TxtStyle()
   ..textColor(kBlack);
 
 // example for Texts
+final styleInstructions = TxtStyle()
+  ..fontSize(24 / 1.2)
+..textElevation(1)
+  ..alignment.bottomCenter()
+  ..bold()
+  ..letterSpacing(1.8)
+  ..textColor(kBlack);
+
 final styleHeader2Text = TxtStyle()
   ..fontSize(18 / 1.2)
   ..padding(bottom: 16)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payrollsystem/features/landing/presentation/pages/landing_page.dart';
+import 'package:payrollsystem/features/reports/presentation/pages/reports_page.dart';
 import 'features/login_page/presentation/pages/login_page.dart';
 
 class RouteGenerator {
@@ -12,6 +13,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) {
           return LoginScreen();
         });
+      case '/reportPage':
+        return MaterialPageRoute(builder: (_) => ReportsPage());
       case '/loginPage':
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case '/landingPage':

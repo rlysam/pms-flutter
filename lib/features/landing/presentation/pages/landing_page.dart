@@ -89,7 +89,7 @@ class LandingPage extends StatelessWidget {
 
         empty
             ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Text("Fill all the fields",
+                content: Text("FILL ALL REQUIRED FIELDS",
                     style: TextStyle(color: Colors.red)),
               ))
             : null;
@@ -186,9 +186,12 @@ class LandingPage extends StatelessWidget {
           _field1[2].text = value.reference;
         });
       }, // READ PayRef from backend (PMS.py)
-      () {}, // view reports ALL Transactions - yung need ng 2 admin auth
+      () {
+Navigator.of(context).pushNamed('/reportPage');
+      }, // view reports ALL Transactions - yung need ng 2 admin auth
       () {
 
+Navigator.of(context).pushNamed('/');
       }, //exit close program
     ];
 
@@ -227,52 +230,32 @@ class LandingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(30),
-                    color: const Color.fromARGB(255, 255, 239, 192),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        //first block
                         Column(
                           children: [
-                            Container(
-                              color: const Color.fromARGB(255, 214, 255, 81),
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: firstBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      isWide: true,
-                                      widget: CustomTextField(
-                                          inputController: _field1[index],
-                                          label: firstBlock[index]));
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
+                            Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //secondblock
-                            Container(
-                              color: const Color.fromARGB(255, 152, 255, 250),
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: secondBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      widget: CustomTextField(
-                                          inputController: _field2[index],
-                                          label: secondBlock[index]));
-                                },
-                              ),
-                            ),
+                              children: [
+                                    //first block
+                                Container(
+                                  width: sectionsWidth,
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: firstBlock.length,
+                                    itemBuilder: (BuildContext context, int index) {
+                                      return SizedWidget(
+                                          isWide: true,
+                                          widget: CustomTextField(
+                                              inputController: _field1[index],
+                                              label: firstBlock[index]));
+                                    },
+                                  ),
+                                ),
                             //thirdblock
                             Container(
-                              color: const Color.fromARGB(255, 255, 152, 224),
                               width: sectionsWidth,
                               child: ListView.builder(
                                 shrinkWrap: true,
@@ -285,6 +268,45 @@ class LandingPage extends StatelessWidget {
                                 },
                               ),
                             ),
+                            
+
+                              ],
+                            ),
+                          ],
+                        ),
+                        
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //secondblock
+                            Container(
+                              width: sectionsWidth,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: secondBlock.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return SizedWidget(
+                                      widget: CustomTextField(
+                                          inputController: _field2[index],
+                                          label: secondBlock[index]));
+                                },
+                              ),
+                            ),
+
+SizedBox(height: 30,),
+                            Container(
+                              width: sectionsWidth,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: fifthBlock.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return SizedWidget(
+                                      widget: CustomTextField(
+                                          inputController: _field5[index],
+                                          label: fifthBlock[index]));
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -294,13 +316,10 @@ class LandingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(30),
-                    color: const Color.fromARGB(255, 199, 240, 236),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //fourth block
+                      children: [                        //fourth block
                         Container(
-                          color: const Color.fromARGB(255, 109, 255, 141),
                           width: sectionsWidth,
                           child: ListView.builder(
                             shrinkWrap: true,
@@ -316,25 +335,9 @@ class LandingPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 30),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            //fiftch block
-                            Container(
-                              color: const Color.fromARGB(255, 255, 234, 173),
-                              width: sectionsWidth,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: fifthBlock.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return SizedWidget(
-                                      widget: CustomTextField(
-                                          inputController: _field5[index],
-                                          label: fifthBlock[index]));
-                                },
-                              ),
-                            ),
-                            const SizedBox(width: 30),
-                            //thirdblock
+                            //Buttons
                             SizedBox(
                               width: 200,
                               child: ListView.builder(
@@ -347,6 +350,20 @@ class LandingPage extends StatelessWidget {
                                 },
                               ),
                             ),
+                          
+                          SizedBox(width: 30),
+                          Column(
+                            //   mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                  SizedBox(height: 30),
+                                  Txt('1. Genererate Pay Reference',style: styleInstructions,),
+                                  SizedBox(height: 5),
+                                  Txt('2. Fill Employee Basic Information',style: styleInstructions,),
+                                  SizedBox(height: 5),
+                                  Txt('3. Add De Minimis, Basic Salary, Overtime and Loan',style: styleInstructions,),
+                              ],
+                          )
                           ],
                         ),
                       ],
