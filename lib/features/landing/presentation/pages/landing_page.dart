@@ -1,6 +1,7 @@
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
 import 'package:payrollsystem/features/landing/data/datasources/initial_data_api.dart';
+import 'package:payrollsystem/features/landing/data/datasources/list_payroll_api.dart';
 import 'package:payrollsystem/features/landing/data/datasources/payref_api.dart';
 import 'package:payrollsystem/features/landing/data/datasources/payroll_sendall_api.dart';
 import 'package:payrollsystem/features/landing/data/models/initial_send.dart';
@@ -180,6 +181,9 @@ class LandingPage extends StatelessWidget {
           _field5[1].text = value.philhealth_number;
           _field1[2].text = value.reference;
         });
+
+// TODO
+        getAllTransactions().then((value) => print(value));
       }, // READ PayRef from backend (PMS.py)
       () {
 // Navigator.of(context).pushNamed('/reportPage');

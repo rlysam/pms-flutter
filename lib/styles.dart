@@ -73,6 +73,16 @@ final styleInstructions = TxtStyle()
   ..letterSpacing(1.8)
   ..textColor(kBlack);
 
+final styleDataTitle = TxtStyle()
+  ..fontSize(18 / 1.2)
+  ..padding(bottom: 16)
+..textElevation(1)
+  ..alignment.bottomCenter()
+//   ..alignmentContent.center()
+  ..bold()
+  ..letterSpacing(1.8)
+  ..textColor(kBlack);
+
 final styleHeader2Text = TxtStyle()
   ..fontSize(18 / 1.2)
   ..padding(bottom: 16)
