@@ -10,6 +10,7 @@ import 'package:payrollsystem/features/landing/data/models/payref.dart';
 import 'package:payrollsystem/features/landing/data/models/payroll_all.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customButton.dart';
 import 'package:payrollsystem/features/landing/presentation/widgets/customfield.dart';
+import 'package:payrollsystem/styles.dart';
 
 // import 'package:aes_crypt_null_safe/aes_crypt_null_safe.dart';
 
@@ -196,7 +197,7 @@ class LandingPage extends StatelessWidget {
       'Reset System', //reset Fields
       'Pay Reference', //get from PMS.py
       'View Reports', //kalokohan ni lyah na report
-      'Exit',
+      'Logout',
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -209,7 +210,15 @@ class LandingPage extends StatelessWidget {
         child: ListView(
           shrinkWrap: true,
           children: [
-            Center(child: Txt('PAYROLL MANAGEMENT SYSTEM', style: labelFont)),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Txt('SVG. CO.EY/COMPANY', style: styleLogoFont),
+                
+
+
+              ],
+            ),
             const SizedBox(height: 20),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,

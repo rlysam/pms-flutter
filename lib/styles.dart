@@ -40,6 +40,14 @@ final styleGeneralContainer = ParentStyle()
   ..border(right: 1, color: kGray);
 
 // example for Texts
+final styleLogoFont = TxtStyle()
+  ..fontSize(44 / 1.2)
+  ..padding(bottom: 16)
+  ..bold()
+  ..letterSpacing(1.8)
+  ..textColor(kBlack);
+
+// example for Texts
 final styleHeaderText = TxtStyle()
   ..fontSize(24 / 1.2)
   ..padding(bottom: 16)
@@ -51,6 +59,7 @@ final styleHeaderText = TxtStyle()
 final styleHeader2Text = TxtStyle()
   ..fontSize(18 / 1.2)
   ..padding(bottom: 16)
+..textElevation(1)
   ..alignment.bottomCenter()
 //   ..alignmentContent.center()
   ..bold()
