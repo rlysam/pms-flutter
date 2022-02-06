@@ -10,18 +10,20 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) {
-          return const LandingPage();
+          return LoginScreen();
         });
       case '/loginPage':
-        return MaterialPageRoute(builder: (_) => const LoginPage());
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case '/landingPage':
-        // Validation of correct data type
-        if (args is String) {
           return MaterialPageRoute(builder: (_) => const LandingPage());
-        }
+        // Validation of correct data type
+        // if (args is String) {
+        //   return MaterialPageRoute(builder: (_) => const LandingPage());
+        // }
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.
         return _errorRoute();
+
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
