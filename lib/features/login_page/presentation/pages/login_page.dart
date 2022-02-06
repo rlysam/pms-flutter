@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthenticationService>(context);
     return Scaffold(
       body: Parent(
           style: styleLoginDiv,
@@ -48,10 +49,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
                     onTap: () {
-                      context.read<AuthenticationService>().signIn(
-                            email: _Username.text.toString().trim(),
-                            password: _Password.text.toString().trim(),
-                          );
+                      authService.signInWithEmailAndPassword(
+                      _Username.text,
+                      _Password.text,
+                      );
                     },
                     child: Parent(
                       style: styleButtonBlue

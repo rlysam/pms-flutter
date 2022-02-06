@@ -33,6 +33,15 @@ final styleButtonBlue = ParentStyle()
 
 
 // example for containers/ same with "div"
+final styleHeader = ParentStyle()
+  ..background.color(kWhite.withOpacity(0))
+  ..alignment.center()
+  ..width(double.maxFinite)
+  ..padding(horizontal:30)
+//   ..height()
+  ..border(bottom: 2, color: kGray);
+
+// example for containers/ same with "div"
 final styleGeneralContainer = ParentStyle()
   ..background.color(kContainerBG)
   ..alignment.center()

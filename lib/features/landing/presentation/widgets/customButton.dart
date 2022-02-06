@@ -25,7 +25,10 @@ class CustomButtom extends StatelessWidget {
               label=='Logout'? (styleButtonBlue..clone()..background.color(kRed)) :
               label=='Pay Reference'? (styleButtonBlue..clone()..background.color(kGreen)) :
               label=='Reset System'? (styleButtonBlue..clone()..background.color(kRed)) :
-                (styleButtonBlue..clone()..background.color(kBlue)),
+label=='REPORTS' ? (styleButtonBlue..clone()..background.color(Color.fromARGB(255, 224, 101, 142))):
+label=='PAYROLL' ? (styleButtonBlue..clone()..background.color(kBlue))
+
+:                (styleButtonBlue..clone()..background.color(kBlue)),
 
                     child: Container(child: Txt(label,
                     
