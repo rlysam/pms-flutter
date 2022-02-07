@@ -23,7 +23,7 @@ class CustomHeader extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.only(left: 90),
-              child: Txt('SVG. CO.EY/COMPANY', style: styleLogoFont),
+              child: Txt('SGV & CO./EY COMPANY', style: styleLogoFont),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 15),

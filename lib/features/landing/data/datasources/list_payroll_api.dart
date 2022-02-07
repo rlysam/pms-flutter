@@ -18,22 +18,22 @@ Future <List<PayrollAll>> getAllTransactions() async {
   if (response.statusCode == 200) {
     List<PayrollAll> allRecord = [];
 
-    var forDecryption = json.decode(response.body); //{secureddata: value}
-
-    print(forDecryption.runtimeType);
-    print(forDecryption);
+    print('\n\nResponse body');
     print(response.body);
 
+    var forDecryption = json.decode(response.body); //{secureddata: value}
+
+    print('\n\nResponse decode');
+    print(forDecryption);
+
     forDecryption.forEach((key, value){
-    // print('Key: $key');
     // print('Value: ${value.runtimeType}');
-    var decrypt2 = decrypt(value);
-    print(decrypt2.runtimeType);
-    var sam = jsonDecode(decrypt2);
-    print(sam);
-    print(sam.runtimeType);
-    // allRecord.add(PayrollAll.fromMap(decrypt2));
-    print('------------------------------');
+
+    var decrypt2 = decrypt(value); //string of JSOk
+
+    var val = PayrollAll.fromJson(decrypt2);
+    allRecord.add(val);
+    // print('------------------------------');
     });
 
     // String decrypted = decrypt(response.body); //"{key:value}"
@@ -47,7 +47,7 @@ Future <List<PayrollAll>> getAllTransactions() async {
     // TODO RETURN LIST OF PayrollAll
 
     // return PayrollAll.fromJson(decrypted); //JSON File yung andito
-    return [];
+    return allRecord;
   } else if (response.statusCode == 404) {
     throw Exception('Failed to login user: User does not exist.');
   } else if (response.statusCode == 401) {

@@ -183,7 +183,6 @@ class LandingPage extends StatelessWidget {
         });
 
 // TODO
-        getAllTransactions().then((value) => print(value));
       }, // READ PayRef from backend (PMS.py)
       () {
 // Navigator.of(context).pushNamed('/reportPage');
