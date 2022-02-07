@@ -72,6 +72,14 @@ class _DataTable2SimpleDemoState extends State<DataTable2SimpleDemo> {
       child: ListView(
           shrinkWrap: true,
         children: [
+            // Row(
+            //     crossAxisAlignment: CrossAxisAlignment.end,
+            //     children: [
+            //         ElevatedButton(onPressed: (){
+
+            //         }, child: Txt('Sample'))
+            //     ],
+            // ),
           DataTable2(
               columnSpacing: 12,
               horizontalMargin: 12,

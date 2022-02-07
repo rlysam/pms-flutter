@@ -27,8 +27,10 @@ class MyApp extends StatelessWidget {
         Provider<AuthenticationService>(create: (_) => AuthenticationService()),
       ],
       child: MaterialApp(
+
         title: 'Payroll MS InfoSec',
         theme: ThemeData(
+            scaffoldBackgroundColor: Color(0xFFFAFAFA),
           primarySwatch: Colors.blue,
         ),
         initialRoute: '/',
